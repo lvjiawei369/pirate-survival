@@ -1,10 +1,17 @@
 # 漂岛奇航 · Pirate Survival
 
-一个用 Three.js 写的网页 3D 海岛生存小游戏原型：软陶玩具画风，在「晴帆岛」收集材料、做工具、打椰壳蟹、修船出航，出航后可以自由航海。
+一个用 Three.js 写的网页 3D 海岛生存小游戏原型：在「晴帆岛」收集材料、做工具、打椰壳蟹、修船出航，出航后可以自由航海。
 
 A browser 3D island-survival prototype built with Three.js — gather, craft, fight coconut crabs, repair your boat and set sail.
 
-![key art](art/concept/01-key-art.png)
+![营地](docs/screenshots/camp.jpg)
+
+## 截图 / Screenshots
+
+| | |
+|---|---|
+| ![战斗](docs/screenshots/combat.jpg) 战斗：三连击刀光、命中火花 | ![滑翔](docs/screenshots/glide.jpg) 从高处滑翔 |
+| ![航海](docs/screenshots/sail.jpg) 修好船后自由航海 | ![地图](docs/screenshots/map.jpg) 小地图 / 整岛地图 |
 
 ## 运行 / Run
 
