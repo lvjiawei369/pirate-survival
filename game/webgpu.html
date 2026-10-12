@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>漂岛奇航 · WebGPU 预览</title>
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    #wg-panel { position: absolute; left: 16px; top: 14px; width: 330px; padding: 0 0 12px; border: 3px solid var(--ink); border-radius: 12px;
+      background: rgba(245, 249, 255, .94); box-shadow: 0 5px 0 rgba(19,41,75,.4); color: var(--ink-2); }
+    #wg-panel h2 { margin: 0 0 8px; padding: 8px 16px; font-size: 24px; font-weight: 400; color: #fff; letter-spacing: 1px;
+      background: linear-gradient(#b48cff, #7a4fe0); border-bottom: 3px solid var(--ink); border-radius: 9px 9px 0 0;
+      text-shadow: 2px 0 0 var(--ink), -2px 0 0 var(--ink), 0 2px 0 var(--ink), 0 -2px 0 var(--ink); }
+    #wg-panel dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; padding: 0 16px; font-size: 15px; }
+    #wg-panel dt { color: #5a6f8f; } #wg-panel dd { margin: 0; color: var(--blue-3); }
+    #wg-panel p { margin: 10px 16px 0; font-size: 13px; line-height: 1.5; color: #5a6f8f; }
+    #wg-btns { position: absolute; right: 16px; bottom: 18px; display: flex; gap: 10px; }
+    #wg-btns button, #wg-btns a { pointer-events: auto; display: flex; align-items: center; gap: 6px; padding: 8px 16px; cursor: pointer; text-decoration: none;
+      transform: skewX(var(--skew)); background: linear-gradient(var(--blue-1), var(--blue-2)); border: 2.5px solid var(--ink); border-radius: 7px;
+      box-shadow: 0 4px 0 rgba(19,41,75,.45), inset 0 2px 0 rgba(255,255,255,.4); font-family: var(--font); }
+    #wg-btns b { font-size: 17px; font-weight: 400; color: #fff; text-shadow: 0 2px 0 var(--ink); }
+    #wg-btns .on { background: linear-gradient(var(--sun-1), var(--sun-2)); } #wg-btns .on b { color: var(--ink); text-shadow: none; }
+    #wg-btns a { background: linear-gradient(#ff8a7a, var(--coral)); }
+    #loading { position: absolute; inset: 0; display: grid; place-items: center; background: #0b2040; color: #fff; font-size: 26px; }
+    #wg-hint { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%) skewX(var(--skew)); padding: 4px 16px; font-size: 14px; color: #dff1ff;
+      background: rgba(19,41,75,.7); border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <main id="viewport">
+    <canvas id="world"></canvas>
+    <section id="wg-panel">
+      <h2>WebGPU 预览</h2>
+      <dl>
+        <dt>渲染后端</dt><dd id="stats-backend">…</dd>
+        <dt>帧率</dt><dd><span id="stats-fps">–</span> fps</dd>
+        <dt>海面</dt><dd id="stats-ocean">…</dd>
+        <dt>雨滴</dt><dd id="stats-rain">…</dd>
+        <dt>草</dt><dd><span id="stats-grass">…</span> 根</dd>
+      </dl>
+      <p>海浪、雨滴都在 GPU 的 compute shader 里每帧重算；草在顶点着色器里被风吹。WebGL 版做不到这个量级。</p>
+    </section>
+    <div id="wg-hint">左键拖动旋转 · 右键平移 · 滚轮缩放</div>
+    <div id="wg-btns">
+      <button id="btn-sea" type="button"><b>海况：普通</b></button>
+      <button id="btn-rain" type="button"><b>下雨</b></button>
+      <button id="btn-grass" type="button" class="on"><b>草地</b></button>
+      <a href="./index.html"><b>返回游戏</b></a>
+    </div>
+    <div id="loading"><span>启动 WebGPU…</span></div>
+  </main>
+  <script type="module" src="./src/webgpu/main.js"></script>
+</body>
+</html>
