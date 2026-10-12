@@ -4,6 +4,11 @@
 
 A browser 3D island-survival prototype built with Three.js — gather, craft, fight coconut crabs, repair your boat and set sail.
 
+> [!NOTE]
+> 这是一个未完成的 Demo，内容和完整度都有限，存在已知问题，也不会作为正式游戏持续开发，仅供学习交流。
+>
+> This is an unfinished demo with limited content and known rough edges. It is shared for learning and discussion only, not as a finished game.
+
 ![营地](docs/screenshots/camp.jpg)
 
 ## 截图 / Screenshots
